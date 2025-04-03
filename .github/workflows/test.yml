@@ -46,6 +46,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt || true
 
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
+
     # ステップ4：テストを実行する
     # python -m unittest はPythonに元から入っている「テストの機能」
     # discover は「テストを探して実行してね」という命令
